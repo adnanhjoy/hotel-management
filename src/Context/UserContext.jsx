@@ -7,7 +7,8 @@ const auth = getAuth(app)
 export const AuthContext = createContext()
 
 const UserContext = ({ children }) => {
-    const [user, setUser] = useState({})
+    const [user, setUser] = useState({});
+    const [loading, setLoading] = useState(true);
 
     const nameUpdate = (name) => {
         return updateProfile(auth.currentUser, {
@@ -29,7 +30,8 @@ const UserContext = ({ children }) => {
 
     useEffect(() => {
         const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
-            setUser(currentUser)
+            setUser(currentUser);
+            setLoading(false);
         })
         return () => {
             unsubscribe()
@@ -38,7 +40,7 @@ const UserContext = ({ children }) => {
 
 
 
-    const authInfo = { user, creatUser, signIn, nameUpdate, logOut };
+    const authInfo = { user, loading, creatUser, signIn, nameUpdate, logOut };
 
     return (
         <AuthContext.Provider value={authInfo}>

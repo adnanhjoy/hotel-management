@@ -25,7 +25,7 @@ const OurPackages = () => {
                             <Card.Body className='d-flex justify-content-between'>
                                 <span className='d-flex align-items-center'><FaBed /><p className='m-0 ms-3'>1</p></span>
                                 <span className='d-flex align-items-center'><FaDollarSign /><p className='m-0 ms-3'>150</p></span>
-                                <Link><button className='btn btn-primary'>Book</button></Link>
+                                <Link to='/single-room'><button className='btn btn-primary'>Book</button></Link>
                             </Card.Body>
                         </Card>
                     </Col>

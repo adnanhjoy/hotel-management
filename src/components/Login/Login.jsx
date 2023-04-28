@@ -1,11 +1,12 @@
 import React, { useContext } from 'react';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../Context/UserContext';
 
 const Login = () => {
 const {signIn} = useContext(AuthContext);
+const navigate = useNavigate();
 
 const handleSubmitLogin = event => {
     event.preventDefault();
@@ -15,8 +16,9 @@ const handleSubmitLogin = event => {
     
     signIn(email, password)
     .then(result => {
-        console.log(result.user);
+        result.user;
         form.reset();
+        navigate('/single-room')
     })
     .catch(error => console.error(error))
 }
