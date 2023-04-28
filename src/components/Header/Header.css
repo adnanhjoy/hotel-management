@@ -1,0 +1,6 @@
+.header{
+    background-image: linear-gradient(rgba(0,0,0,0.75),rgba(0,0,0,0.75)),url('/src/assets/cover.jpg');
+    background-size: cover;
+    background-position: center;
+    height: 50vh;
+}
