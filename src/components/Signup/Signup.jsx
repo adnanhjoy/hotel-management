@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 import { AuthContext } from '../../Context/UserContext';
 
 const Signup = () => {
-    const {creatUser} = useContext(AuthContext);
+    const { nameUpdate, creatUser } = useContext(AuthContext);
 
     const handleSubmitSignup = event => {
         event.preventDefault();
@@ -15,11 +15,18 @@ const Signup = () => {
         const password = form.password.value;
 
         creatUser(email, password)
-        .then(result => {
-            result.user;
-            form.reset();
-        })
-        .catch(error => console.error(error))
+            .then(result => {
+                result.user;
+                updateProfile(name);
+                form.reset();
+            })
+            .catch(error => console.error(error))
+    }
+
+    const updateProfile = (name) => {
+        nameUpdate(name)
+            .then(() => { })
+            .catch(error => console.error(error))
     }
 
     return (
