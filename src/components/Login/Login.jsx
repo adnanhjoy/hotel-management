@@ -5,7 +5,7 @@ import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../Context/UserContext';
 
 const Login = () => {
-const {signIn} = useContext(AuthContext);
+const {signIn, googleSignIn} = useContext(AuthContext);
 const navigate = useNavigate();
 const location = useLocation()
 const from = location.state?.from?.pathname || "/";
@@ -20,6 +20,15 @@ const handleSubmitLogin = event => {
     .then(result => {
         result.user;
         form.reset();
+        navigate(from, { replace: true })
+    })
+    .catch(error => console.error(error))
+}
+
+const handleSubmitGoogle = () => {
+    googleSignIn()
+    .then(result => {
+        result.user;
         navigate(from, { replace: true })
     })
     .catch(error => console.error(error))
@@ -42,6 +51,7 @@ const handleSubmitLogin = event => {
                     Login
                 </Button>
                 <p>You don't have an account ? <Link to='/signup'>Signup</Link></p>
+                <button onClick={handleSubmitGoogle} className='btn btn-primary'>Sign in with Google</button>
             </Form>
         </div>
     );
