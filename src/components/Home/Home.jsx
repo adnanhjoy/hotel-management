@@ -1,9 +1,11 @@
 import React from 'react';
-import OurPackages from '../OurPackages/OurPackages';
+import OurPackages from '../OurPackeges/OurPackages';
+import Header from '../Header/Header';
 
 const Home = () => {
     return (
         <div>
+            <Header></Header>
             <OurPackages></OurPackages>
         </div>
     );
