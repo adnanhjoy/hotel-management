@@ -7,6 +7,8 @@ import Login from './components/Login/Login'
 import Signup from './components/Signup/Signup'
 import PrivateRoutes from './routes/PrivateRoutes'
 import SingleRoom from './components/SingleRoom/SingleRoom'
+import DoubleRoom from './components/DoubleRoom/DoubleRoom'
+import CoupleRoom from './components/CoupleRoom/CoupleRoom'
 
 const router = createBrowserRouter([
   {
@@ -32,6 +34,14 @@ const router = createBrowserRouter([
       {
         path: 'single-room',
         element: <PrivateRoutes><SingleRoom></SingleRoom></PrivateRoutes>
+      },
+      {
+        path: 'double-room',
+        element: <PrivateRoutes><DoubleRoom></DoubleRoom></PrivateRoutes>
+      },
+      {
+        path: 'couple-room',
+        element: <PrivateRoutes><CoupleRoom></CoupleRoom></PrivateRoutes>
       }
     ]
   }
